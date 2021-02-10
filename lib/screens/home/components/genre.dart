@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sub_flutter_pemula/constans.dart';
 
-class Genre extends StatefulWidget {
+class Genre extends StatelessWidget {
   const Genre({
     Key key,
     this.text,
@@ -12,21 +12,16 @@ class Genre extends StatefulWidget {
   final Color background;
 
   @override
-  _GenreState createState() => _GenreState();
-}
-
-class _GenreState extends State<Genre> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: kDefaultPadding/4),
       margin: EdgeInsets.only(right: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: widget.background,
+        color: background,
       ),
       child: Text(
-        widget.text,
+        text,
         style: TextStyle(fontSize: 12, color: Colors.white),
       ),
     );

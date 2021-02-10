@@ -16,6 +16,10 @@ class ImageAndIcon extends StatefulWidget {
 }
 
 class _ImageAndIconState extends State<ImageAndIcon> {
+
+  String image = "assets/icons/heart.svg";
+  bool like = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -27,7 +31,7 @@ class _ImageAndIconState extends State<ImageAndIcon> {
           children: <Widget>[
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 3),
+                padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
                 child: Column(
                   children: <Widget>[
                     Align(
@@ -43,7 +47,19 @@ class _ImageAndIconState extends State<ImageAndIcon> {
                     Spacer(),
                     IconCard(image: "assets/icons/play_movie.svg"),
                     IconCard(image: "assets/icons/direct-download.svg"),
-                    IconCard(image: "assets/icons/heart.svg")
+                    GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            if (!like) {
+                              image = "assets/icons/heart_colored.svg";
+                              like = true;
+                            } else {
+                              image = "assets/icons/heart.svg";
+                              like = false;
+                            }
+                          });
+                        },
+                        child: IconCard(image: image))
                   ],
                 ),
               ),

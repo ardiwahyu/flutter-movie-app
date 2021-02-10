@@ -3,7 +3,7 @@ import 'package:sub_flutter_pemula/constans.dart';
 
 import 'components/body.dart';
 
-class DetailScreen extends StatefulWidget {
+class DetailScreen extends StatelessWidget {
   const DetailScreen({
     Key key,
     this.title,
@@ -18,15 +18,10 @@ class DetailScreen extends StatefulWidget {
   final List<Widget> genres;
 
   @override
-  _DetailScreenState createState() => _DetailScreenState();
-}
-
-class _DetailScreenState extends State<DetailScreen> {
-  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Body(title: widget.title, image: widget.image, time: widget.time, genres: widget.genres),
+      body: Body(title: title, image: image, time: time, genres: genres),
       bottomNavigationBar: Container(
         height: 60,
         child: Row(

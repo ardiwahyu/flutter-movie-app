@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sub_flutter_pemula/constans.dart';
 
-class RecommendedMovieCard extends StatefulWidget {
+class RecommendedMovieCard extends StatelessWidget {
   const RecommendedMovieCard({Key key, this.image, this.title, this.genres, this.onClick})
       : super(key: key);
 
@@ -11,15 +11,10 @@ class RecommendedMovieCard extends StatefulWidget {
   final Function onClick;
 
   @override
-  _RecommendedMovieCardState createState() => _RecommendedMovieCardState();
-}
-
-class _RecommendedMovieCardState extends State<RecommendedMovieCard> {
-  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
-      onTap: widget.onClick,
+      onTap: onClick,
       child: Container(
           margin: EdgeInsets.only(
               top: kDefaultPadding,
@@ -33,7 +28,7 @@ class _RecommendedMovieCardState extends State<RecommendedMovieCard> {
                       topLeft: Radius.circular(kDefaultPadding / 1.5),
                       topRight: Radius.circular(kDefaultPadding / 1.5)),
                   child: Image.asset(
-                    widget.image,
+                    image,
                   )),
               Container(
                 padding: EdgeInsets.all(kDefaultPadding / 2),
@@ -53,12 +48,12 @@ class _RecommendedMovieCardState extends State<RecommendedMovieCard> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(widget.title.toUpperCase(),
+                        Text(title.toUpperCase(),
                             style: Theme.of(context).textTheme.button),
                         Container(
                           margin: EdgeInsets.only(top: 4),
                           child: Row(
-                            children: widget.genres,
+                            children: genres,
                           ),
                         )
                       ],
